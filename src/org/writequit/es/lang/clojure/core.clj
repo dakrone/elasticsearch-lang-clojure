@@ -1,5 +1,5 @@
 ;; compilation environment for clojure es scripts
-(ns com.thelastcitadel.es.core)
+(ns org.writequit.es.lang.clojure.core)
 
 (defprotocol Value
   (value [_]))

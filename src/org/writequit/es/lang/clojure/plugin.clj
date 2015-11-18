@@ -1,4 +1,4 @@
-(ns com.thelastcitadel.es.plugin
+(ns org.writequit.es.lang.clojure.plugin
   (:gen-class
    :extends org.elasticsearch.plugins.AbstractPlugin
    :methods [[onModule [org.elasticsearch.script.ScriptModule]
@@ -11,4 +11,4 @@
   "Adds Clojure scripting to ElasticSearch")
 
 (defn -onModule [_ module]
-  (.addScriptEngine module (Class/forName "com.thelastcitadel.es.engine")))
+  (.addScriptEngine module (Class/forName "org.writequit.es.lang.clojure.engine")))

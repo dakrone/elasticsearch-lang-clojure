@@ -1,11 +1,11 @@
-(ns com.thelastcitadel.es.engine
+(ns eorg.writequit.es.lang.clojure.engine
   (:gen-class
    :extends org.elasticsearch.common.component.AbstractComponent
    :implements [org.elasticsearch.script.ScriptEngineService]
    :constructors {^{org.elasticsearch.common.inject.Inject true} [org.elasticsearch.common.settings.Settings]
                   [org.elasticsearch.common.settings.Settings]})
   (require [clojure.tools.logging :as log]
-           [com.thelastcitadel.es.core]))
+           [org.writequit.es.lang.clojure.core]))
 
 (defn -init [s]
   [[] nil])
@@ -32,7 +32,7 @@
               (binding [*warn-on-reflection* true
                         *out* o
                         *err* e
-                        *ns* (find-ns 'com.thelastcitadel.es.core)]
+                        *ns* (find-ns 'org.writequit.es.lang.clojure.core)]
                 (eval (read-string (str "(do " script " )")))))
         out (String. (.toByteArray out))]
     (when-not (empty? out)
